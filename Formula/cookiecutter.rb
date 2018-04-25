@@ -102,6 +102,8 @@ class Cookiecutter < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["LANG"] = "en_US.UTF-8"
     system "git", "clone", "https://github.com/audreyr/cookiecutter-pypackage.git"
     system bin/"cookiecutter", "--no-input", "cookiecutter-pypackage"
     assert (testpath/"python_boilerplate").directory?
